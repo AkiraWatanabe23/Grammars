@@ -30,7 +30,7 @@ pythonでは、クラスをインスタンスとしてから中の関数を呼�
 このインスタンス自身を入れる引数に習慣として「self」が使われる
 """
 
-#使い方 1 :インスタンス変数として参照する
+#使い方 1 :インスタンスを参照
 class Instance():
     def __init__(self, strA, strB):
         #インスタンス変数...コンストラクタ内で宣言された変数
@@ -43,10 +43,10 @@ print(test.strB) # -> Morning!
 """
 上記のようにインスタンス(今回は「test」)を生成する時に引数を渡すことで、
 selfを使ってインスタンス変数として代入することができる
-※呼び出す側は(selfにあたる部分には)引数として値を入れない
+※呼び出す側は、selfにあたる部分には引数として値を入れない
 """
 
-#使い方 2 :クラス内メソッドで参照する
+#使い方 2 :クラス内メソッドで参照
 #以下のように、クラス内のメソッドでインスタンス変数を参照することができる
 class ClassVariable():
     #クラス変数...クラス定義内で宣言された変数
@@ -60,14 +60,14 @@ class ClassVariable():
         print(self.strA)
         print(self.strB)
 
-test = ClassVariable("Good", "Afternoon...") #インスタンス化
+test = ClassVariable("Good", "Afternoon")
 #クラス内の関数を呼び出す
-test.output() # -> Good (\n) Afternoon...
+test.output() # -> Good
+#                  Afternoon
 #クラス変数を出力する
 print(test.name) # -> Name
 
 #使い方 3 :クラス継承に使う
-#selfはクラス変数として参照できるため、クラスを継承した時にも参照することができる
 class TestBase():
     def __init__(self):
         self.strA = "Hello World!"
@@ -79,6 +79,7 @@ class Inheritance(TestBase):
 
 test = Inheritance()
 test.output() # -> Hello World!
+#↑ TestBase(基底クラス)の「self.strA」を参照している
 
 #注意点↓
 class Warns():
@@ -86,7 +87,6 @@ class Warns():
 
     def __init__(self):
         print(f"1: {self.strA}") # -> 1: Hello Python (クラス変数「strA」を参照)
-        #インスタンス変数
         self.strA = "Hello World!"
         print(f"2: {self.strA}") # -> 2: Hello World! (インスタンス変数「self.strA」を参照)
         strA = "Hello everyone"
@@ -99,11 +99,10 @@ test = Warns()
 python の仕様として、「self.変数名」の形でクラス変数もインスタンス変数も参照できるが、
 同じ名前のクラス変数とインスタンス変数があり、両方に値がある場合、インスタンス変数を優先して参照する
 
-この場合、コンストラクタ内でstrA(クラス変数)を"Hello everyone"に変更して出力しようとしたが、
-この時点でクラス変数「strA」とインスタンス変数「strA」の両方に値が存在するため、
-インスタンス変数「strA」("Hello World!")が優先して出力される
+この時、コンストラクタ内でstrA(クラス変数)を"Hello everyone"に変更して出力しようとしたが、
+クラス変数「strA」とインスタンス変数「strA」の両方に値が存在するため、
+インスタンス変数「strA」("Hello World!")が優先して参照、出力される
 """
-
 
 #合わせて理解 ... 「cls」
 #cls ... クラス自身(設計図)を示すもの
@@ -131,10 +130,10 @@ class CLSTest:
 ins_f = CLSTest("Mike")
 ins_s = CLSTest("Tony")
 
+#call_name()はインスタンスメソッドであるため、それぞれのインスタンスの値が参照される
 ins_f.call_name() # -> My name is Mike.
 ins_s.call_name() # -> My name is Tony.
-#call_name()はインスタンスメソッドであるため、それぞれのインスタンスの値が参照される
 
+#ask_name()はクラスメソッドであるため、クラス変数「name = "Mary"」が参照される
 ins_f.ask_name()  # -> Your name is Mary, right?
 ins_s.ask_name()  # -> Your name is Mary, right?
-#ask_name()はクラスメソッドであるため、クラス変数「name = "Mary"」が参照される
