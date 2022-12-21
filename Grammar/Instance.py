@@ -1,5 +1,6 @@
 #インスタンス化の注意点
 #https://python.ms/class/
+
 class Animal:
     #クラス変数
     att = "dog"
@@ -15,7 +16,7 @@ instance = Animal() #インスタンス化
 instance.honk() # -> bowwow
 instance.bark() # -> woof
 
-instance.name = "cat" #インスタンス化した変数からクラス変数を参照している(Animalクラスのnameの値は変更されない)
+instance.name = "cat" #インスタンス(クラスのコピー)からクラス変数を参照している(Animalクラスのnameの値は変更されない)
 print(Animal.name) # -> None
 Animal.name = "pig" #Animalクラスのクラス変数「name」を直接参照している(Animalクラスのnameの値が変更されている)
 print(instance.name) # -> cat

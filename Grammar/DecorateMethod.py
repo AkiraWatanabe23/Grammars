@@ -7,7 +7,7 @@
 #ex.1)
 def decorator(func_base): # <- 引数には、デコレートする関数(今回は「func()」)が入る
     def in_decolate():
-        print('check')
+        print('check', end=" ")
         func_base() # <- ここでデコレートする関数[func()]の処理を実行する
     return in_decolate # <- 処理を実行した後に関数を返す
 
@@ -21,8 +21,8 @@ def func():
 def func_test():
     print("test")
 
-func()      # -> check (\n) decorate
-func_test() # -> check (\n) test
+func()      # -> check decorate
+func_test() # -> check test
 
 #ex.2)引数を受け取る関数デコレータ
 #def base(): ... デコレータの引数を受け取る
