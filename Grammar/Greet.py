@@ -4,7 +4,7 @@ name = 'aaa'
 print('Hello')
 print(f"Your name is {name}, right? \n Please answer with 'yes' or 'no'.")
 
-#以下のように(変数名の後に型名)記述することで、変数の型を指定することができる
+#以下のように(変数名: 型名)記述することで、変数の型を指定することができる
 call: str = input()
 
 if call == "yes":
