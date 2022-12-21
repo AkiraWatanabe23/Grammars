@@ -72,7 +72,7 @@ class TestBase():
     def __init__(self):
         self.strA = "Hello World!"
 
-#↓クラス定義時に、()内にクラス名を記述することで継承することができる
+#↓クラス定義時に、()内にクラス名を記述することでそのクラスを継承することができる
 class Inheritance(TestBase):
     def output(self):
         print(self.strA)
@@ -99,13 +99,13 @@ test = Warns()
 python の仕様として、「self.変数名」の形でクラス変数もインスタンス変数も参照できるが、
 同じ名前のクラス変数とインスタンス変数があり、両方に値がある場合、インスタンス変数を優先して参照する
 
-3 の場合は、コンストラクタ内でstrA(クラス変数)を"Hello everyone"に変更して出力しようとしたが、
+この場合、コンストラクタ内でstrA(クラス変数)を"Hello everyone"に変更して出力しようとしたが、
 この時点でクラス変数「strA」とインスタンス変数「strA」の両方に値が存在するため、
 インスタンス変数「strA」("Hello World!")が優先して出力される
 """
 
 
-#合わせて理解したい ... 「cls」
+#合わせて理解 ... 「cls」
 #cls ... クラス自身(設計図)を示すもの
 #        「@classmethod」デコレータをつけたメソッド(クラスメソッド)の第一引数として扱う
 
@@ -133,10 +133,8 @@ ins_s = CLSTest("Tony")
 
 ins_f.call_name() # -> My name is Mike.
 ins_s.call_name() # -> My name is Tony.
-#call_name()はインスタンスメソッドであり、selfはそれぞれのインスタンスを示すものであるため
-#それぞれのインスタンスの値で出力される
+#call_name()はインスタンスメソッドであるため、それぞれのインスタンスの値が参照される
 
 ins_f.ask_name()  # -> Your name is Mary, right?
 ins_s.ask_name()  # -> Your name is Mary, right?
-#ask_name()はクラスメソッドであり、clsはクラスそのものを示すため
-#クラス変数である name = "Mary" が参照され、出力される
+#ask_name()はクラスメソッドであるため、クラス変数「name = "Mary"」が参照される
