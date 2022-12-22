@@ -35,7 +35,7 @@ class FourArithmetic:
     def __truediv__(self, tr): #割り算(division)
         return self.value / tr.value
 
-    def __floordiv__(self, fl): #割り算(division) ※切り捨て
+    def __floordiv__(self, fl): #割り算(division) ※小数点以下切り捨て
         return self.value // fl.value
 
 x = FourArithmetic(100.5)
