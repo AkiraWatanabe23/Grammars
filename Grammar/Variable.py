@@ -21,6 +21,11 @@ hoge_instance = Hoge()         # インスタンスを生成
 hoge_instance.dump_instance()  # -> 0(この時点ではインスタンス変数を定義していないため、同名のクラス変数が参照される)
 hoge_instance.dump_class()     # -> 0
 
-hoge_instance.construct(id=10)  # インスタンス化(キーワード引数で指定) ... (10)でもOK
+hoge_instance.construct(id=10)  # インスタンス化(キーワード引数で指定) ... 位置引数で指定してもOK
 hoge_instance.dump_instance()   # -> 10, インスタンス変数の参照が優先
 hoge_instance.dump_class()      # -> 0(クラス変数が参照される)
+
+"""
+クラス変数 ... 「クラス定義直下」で宣言した変数(上記例: id = 0)
+インスタンス変数 ... 「コンストラクタ(__init__)内」で宣言した変数
+"""
