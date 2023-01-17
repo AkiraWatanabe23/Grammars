@@ -1,6 +1,5 @@
 ####################
 #引数(Argumant)の参照渡し、値渡しについて
-#https://www.javadrive.jp/python/userfunc/index3.html
 
 #値渡し...関数を呼び出したり変数を定義したりする時に、元の値を「コピーして渡す」方法
 #        (コピーを渡すため、値渡しで定義した変数の値を変更しても呼び出し元の値は変更されない)
@@ -50,7 +49,6 @@ print(a)             # -> [15, 20] ... 呼び出し元の変数の値が変更�
 
 ####################
 #位置引数、キーワード引数とは
-#https://www.javadrive.jp/python/userfunc/index6.html
 
 #呼び出す関数に引数がある場合、「位置引数」「キーワード引数」という記述方法を用いて記述できる
 def positional_arg(arg1, arg2):
@@ -76,7 +74,6 @@ keyword_arg(arg1='test', arg2=39) # -> 引数1 : test, 引数2 : 39
 
 ####################
 #可変長引数「*args」「**kwrags」
-#https://note.nkmk.me/python-args-kwargs-usage/
 
 """
 *args ... 「*」をつけた引数を定義することで、任意の数の引数を指定できる
@@ -102,12 +99,15 @@ tuple_arg(1, 3, 5, 7, 9) # -> <class 'tuple'>
 #                          -> 25
 
 def dic_arg(**kwrags):
+    print(type(kwrags))
     print(kwrags)
 
 dic = {'key1' : 1, 'key2' : 2, 'key3' : 3}
 
-dic_arg(test=1) # -> {'test': 1}
-dic_arg(**dic)  # -> {'key1': 1, 'key2': 2, 'key3': 3}
+dic_arg(test=1) # -> <class 'dict'>
+#                 -> {'test': 1}
+dic_arg(**dic)  # -> <class 'dict'>
+#                 -> {'key1': 1, 'key2': 2, 'key3': 3}
 #辞書に「**」をつけて引数に指定することもできる
 ####################
 
