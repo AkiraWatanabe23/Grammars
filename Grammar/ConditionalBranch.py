@@ -37,3 +37,54 @@ print("Yes" if n >= 20 else "No")
 #a ... Trueの場合の出力内容
 #b ... Falseの場合の出力内容
 #上記のように、出力の中に条件文を埋め込むこともできる
+
+#pythonには、他の言語に存在する「switch文」がない
+"""
+switch文とは?
+以下C#の書き方
+
+using Sysetm;
+
+class Test
+{
+    void Main()
+    {
+        int num = 10;
+        
+        switch (num):
+        {
+            case 5:
+                Console.WriteLine("num = 5 です");
+                break;
+            case 10:
+                Console.WriteLine("num = 10 です");
+                break;
+            default:
+                Console.WriteLine("該当しませんでした");
+                break;
+        }
+    }
+}
+
+"""
+#上記のように、一般的には3つ以上の条件判定に用いる
+
+#pythonには、if, elif, else で簡単に記述できる、という理由でswitch文がない
+#python3.10以降から、新しく「match文」という構文が追加された
+name = "Ichiro"
+
+match name:
+    case "Ichiro":
+        print("He is a baseball player")
+
+    case "Ronaldo":
+        print("He is a soccer player")
+    
+    case "Messi":
+        print("He is a soccer player")
+    # case "Ronaldo" or "Messi":とはできない
+
+    case _:
+        print("He is a professional player")
+#注意：case 内には、計算式やブール演算子を記述することはできない
+#単体の値についての条件分岐の際に有効
