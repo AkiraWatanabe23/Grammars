@@ -1,5 +1,4 @@
-<<<<<<< HEAD
+python言語の文法について記述する<br>
 
-=======
->>>>>>> 2791416ed081f8edcbe59d3c0a6e0443fd0612cc
-python言語の文法について記述する
+↓Notionにまとめた<br>
+https://quasar-antique-472.notion.site/Python-110c084dbcd8493e8735bfe5e92d9b3c<br>
