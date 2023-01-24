@@ -4,7 +4,7 @@
 #https://zenn.dev/ryo_kawamata/articles/learn_decorator_in_python
 
 #関数デコレータの定義(関数デコレータ内で関数を定義する)
-def decorator(func_base): # <- 引数には、デコレートする関数(今回は「func()」)が入る
+def decorator(func_base): # <- 引数には、デコレートする関数が入る
     '''ex.1)引数を渡さない関数デコレータ'''
     def in_decolate():
         print('check', end=" ")
@@ -30,10 +30,10 @@ func_test() # -> check test
 def base(get): # <- get...関数デコレータの引数(「@...」の時に設定する)
     '''ex.2)引数を受け取る関数デコレータ'''
     #def child(): ... デコレートする関数を受け取る
-    def child(func_child): # <- func...デコレートする関数
+    def child(func_child): # <- func_child...デコレートする関数
 
         #def wrap(): ... 実際の処理を記述する
-        def wrap(*args, **kwargs): # <- ここには、「func()」の引数が入る
+        def wrap(*args, **kwargs): # <- ここには、「func_child()」の引数が入る
             get_func = func_child(*args, **kwargs)
             return f"<{get}> {get_func} </{get}>" # <- wrap()のreturn
 
