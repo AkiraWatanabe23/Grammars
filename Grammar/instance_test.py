@@ -1,15 +1,17 @@
-#インスタンス化の注意点
+'''インスタンス化の注意点'''
 #https://python.ms/class/
 
 class Animal:
-    #クラス変数
+    '''クラス変数'''
     att = "dog"
     name = None
 
     def honk(self):
+        '''鳴く'''
         print('bowwow')
 
     def bark(self):
+        '''吠える'''
         print('woof')
 
 instance = Animal() #インスタンス化
@@ -22,15 +24,13 @@ Animal.name = "pig" #Animalクラスのクラス変数「name」を直接参照�
 print(instance.name) # -> cat
 print(Animal.name) # -> pig
 
-"""
-※注意事項
+# ※注意事項
 
-instance = Animal
-instance.honk()
-instance.bark()
-と記述した場合、実行時にエラーが発生する
-(この時、コードを記述した時点ではエラーを起こさないため、注意!!)
-エラーメッセージ↓
-TypeError: Animal.honk() missing 1 required positional argument: 'self'
-(honk()に必要な引数「self」がありません)
-"""
+# instance = Animal
+# instance.honk()
+# instance.bark()
+# と記述した場合、実行時にエラーが発生する
+# (この時、コードを記述した時点ではエラーを起こさないため、注意!!)
+# エラーメッセージ↓
+# TypeError: Animal.honk() missing 1 required positional argument: 'self'
+# (honk()に必要な引数「self」がありません)
